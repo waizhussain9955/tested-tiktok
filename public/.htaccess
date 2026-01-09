@@ -1,5 +1,5 @@
 # ----------------------------------------------------------------------
-# 1. Force HTTPS and Non-WWW (Preferred Best Practice for SEO Consistency)
+# 1. Force HTTPS and Non-WWW (Canonical Domain: tik-tokdownloader.xyz)
 # ----------------------------------------------------------------------
 <IfModule mod_rewrite.c>
     RewriteEngine On
@@ -11,6 +11,17 @@
     # Force Non-WWW
     RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
     RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+    
+    # ----------------------------------------------------------------------
+    # Route root to static/index.html
+    # ----------------------------------------------------------------------
+    RewriteRule ^$ static/index.html [L]
+    
+    # ----------------------------------------------------------------------
+    # Route other requests to static folder if they exist there
+    # ----------------------------------------------------------------------
+    RewriteCond %{DOCUMENT_ROOT}/static/%{REQUEST_URI} -f
+    RewriteRule ^(.*)$ static/$1 [L]
 </IfModule>
 
 # ----------------------------------------------------------------------
@@ -29,7 +40,7 @@
 </IfModule>
 
 # ----------------------------------------------------------------------
-# 3. Enable Browser Caching (Leverage Browser Caching)
+# 3. Enable Browser Caching
 # ----------------------------------------------------------------------
 <IfModule mod_expires.c>
     ExpiresActive On
@@ -38,6 +49,9 @@
     ExpiresByType text/css "access plus 1 year"
     ExpiresByType application/javascript "access plus 1 year"
     ExpiresByType image/x-icon "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
 </IfModule>
 
 # ----------------------------------------------------------------------

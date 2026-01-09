@@ -44,16 +44,16 @@ def create_app() -> FastAPI:
     app.include_router(router, prefix=settings.api_prefix)
     
     # Create static directory if it doesn't exist
-    if not os.path.exists("static"):
-        os.makedirs("static")
+    if not os.path.exists("public/static"):
+        os.makedirs("public/static")
     
     # Mount static files
-    app.mount("/static", StaticFiles(directory="static"), name="static")
+    app.mount("/static", StaticFiles(directory="public/static"), name="static")
 
     @app.get("/")
     async def read_index():
         """Serve the frontend index.html."""
-        return FileResponse("static/index.html")
+        return FileResponse("public/static/index.html")
     
     @app.on_event("startup")
     async def startup_event():

@@ -3,35 +3,40 @@
     --secondary: #25f4ee;
     --accent: #7c3aed;
     --dark: #000000;
-    --bg-dark: #050505;
-    --card-bg: rgba(255, 255, 255, 0.08);
+    --bg-dark: #0a0a0a;
+    /* Slightly lighter than pure black */
+    --card-bg: #1a1a1a;
+    /* Solid dark grey/black for better visibility */
     --text-white: #ffffff;
-    --text-muted: #94a3b8;
+    --text-muted: #cbd5e1;
+    /* Lighter grey for better readability */
     --gradient: linear-gradient(135deg, #fe2c55 0%, #7c3aed 50%, #25f4ee 100%);
-    --glass: rgba(255, 255, 255, 0.06);
-    --border: rgba(255, 255, 255, 0.18);
+    --glass: #232323;
+    /* Solid color fallback for glass elements */
+    --border: rgba(255, 255, 255, 0.15);
     --font-main: 'Plus Jakarta Sans', sans-serif;
     --font-heading: 'Outfit', sans-serif;
-    --card-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    --card-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.7);
+    /* Stronger shadow */
 }
 
 [data-theme="light"] {
-    --bg-dark: #ffffff;
-    /* Clean white background for light mode */
-    --card-bg: #f8fafc;
-    --text-white: #0f172a;
-    --text-muted: #475569;
-    --glass: rgba(255, 255, 255, 0.9);
-    --border: rgba(0, 0, 0, 0.08);
-    --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+    --bg-dark: #f0f2f5;
+    /* Light grey background */
+    --card-bg: #ffffff;
+    /* Pure white content cards */
+    --text-white: #1e293b;
+    /* Dark text */
+    --text-muted: #64748b;
+    --glass: #ffffff;
+    --border: #e2e8f0;
+    /* Visible border */
+    --card-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.1);
     --secondary-fixed: #0891b2;
 }
 
 [data-theme="light"] body::before {
-    opacity: 0.1;
-    /* Very subtle gradient on light mode or remove it */
-    background: radial-gradient(circle at 20% 0%, rgba(254, 44, 85, 0.05) 0%, transparent 50%),
-        radial-gradient(circle at 90% 90%, rgba(37, 244, 238, 0.05) 0%, transparent 50%);
+    display: none;
 }
 
 [data-theme="dark"] {
@@ -523,7 +528,7 @@ body::after {
 /* Error Box */
 .error-msg {
     display: none;
-    margin-top: 1.5rem;
+    margin: 1.5rem auto 0;
     padding: 1rem;
     background: rgba(239, 68, 68, 0.1);
     border: 1px solid rgba(239, 68, 68, 0.3);
@@ -532,6 +537,8 @@ body::after {
     align-items: center;
     gap: 0.8rem;
     width: 100%;
+    max-width: 850px;
+    /* Match converter card width */
 }
 
 /* Result Card */
