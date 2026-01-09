@@ -1,14 +1,15 @@
 :root {
     --primary: #fe2c55;
     --secondary: #25f4ee;
+    --accent: #7c3aed;
     --dark: #000000;
-    --bg-dark: #0a0a0c;
-    --card-bg: rgba(255, 255, 255, 0.05);
+    --bg-dark: #050505;
+    --card-bg: rgba(255, 255, 255, 0.03);
     --text-white: #ffffff;
-    --text-muted: #a1a1aa;
-    --gradient: linear-gradient(90deg, #fe2c55, #25f4ee);
-    --glass: rgba(255, 255, 255, 0.03);
-    --border: rgba(255, 255, 255, 0.1);
+    --text-muted: #94a3b8;
+    --gradient: linear-gradient(135deg, #fe2c55 0%, #7c3aed 50%, #25f4ee 100%);
+    --glass: rgba(255, 255, 255, 0.02);
+    --border: rgba(255, 255, 255, 0.08);
     --font-main: 'Plus Jakarta Sans', sans-serif;
     --font-heading: 'Outfit', sans-serif;
 }
@@ -34,12 +35,10 @@ body {
     font-family: var(--font-main);
     line-height: 1.6;
     position: relative;
-    background-image:
-        radial-gradient(at 0% 0%, rgba(254, 44, 85, 0.05) 0px, transparent 50%),
-        radial-gradient(at 100% 0%, rgba(37, 244, 238, 0.05) 0px, transparent 50%);
+    background-color: var(--bg-dark);
 }
 
-/* Subtle Grid Pattern */
+/* Premium Tech Texture */
 body::before {
     content: "";
     position: fixed;
@@ -48,11 +47,41 @@ body::before {
     width: 100%;
     height: 100%;
     background-image:
-        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-    background-size: 40px 40px;
+        radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        url("https://www.transparenttextures.com/patterns/carbon-fibre.png");
+    background-size: 30px 30px, auto;
+    opacity: 0.2;
     z-index: -2;
     pointer-events: none;
+}
+
+/* Animated Mesh Gradient Layer */
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:
+        radial-gradient(circle at 20% 30%, rgba(254, 44, 85, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(37, 244, 238, 0.1) 0%, transparent 40%),
+        radial-gradient(circle at 50% 10%, rgba(124, 58, 237, 0.1) 0%, transparent 50%);
+    filter: blur(60px);
+    z-index: -3;
+    animation: pulseBG 15s infinite alternate ease-in-out;
+}
+
+@keyframes pulseBG {
+    0% {
+        opacity: 0.6;
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1.15);
+    }
 }
 
 .container {
@@ -76,44 +105,44 @@ body::before {
 .blob {
     position: absolute;
     border-radius: 50%;
-    filter: blur(120px);
-    opacity: 0.2;
-    animation: move 25s infinite alternate ease-in-out;
+    filter: blur(100px);
+    opacity: 0.25;
+    animation: move 30s infinite alternate ease-in-out;
 }
 
 .blob-1 {
-    width: 400px;
-    height: 400px;
+    width: 600px;
+    height: 600px;
     background: var(--primary);
-    top: -100px;
-    left: -100px;
+    top: -200px;
+    left: -150px;
 }
 
 .blob-2 {
-    width: 300px;
-    height: 300px;
+    width: 500px;
+    height: 500px;
     background: var(--secondary);
-    bottom: -50px;
-    right: -50px;
-    animation-delay: -5s;
+    bottom: -150px;
+    right: -100px;
+    animation-delay: -7s;
 }
 
 .blob-3 {
-    width: 250px;
-    height: 250px;
-    background: #7c3aed;
+    width: 400px;
+    height: 400px;
+    background: var(--accent);
     top: 40%;
-    left: 30%;
-    animation-delay: -10s;
+    left: 20%;
+    animation-delay: -15s;
 }
 
 @keyframes move {
-    from {
-        transform: translate(0, 0);
+    0% {
+        transform: translate(0, 0) rotate(0deg);
     }
 
-    to {
-        transform: translate(100px, 50px);
+    100% {
+        transform: translate(150px, 100px) rotate(360deg);
     }
 }
 
