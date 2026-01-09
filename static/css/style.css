@@ -17,14 +17,21 @@
 
 [data-theme="light"] {
     --bg-dark: #ffffff;
+    /* Clean white background for light mode */
     --card-bg: #f8fafc;
     --text-white: #0f172a;
     --text-muted: #475569;
     --glass: rgba(255, 255, 255, 0.9);
-    --border: rgba(0, 0, 0, 0.1);
+    --border: rgba(0, 0, 0, 0.08);
     --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
-    /* Improve visibility of FAQ/Secondary colors in light mode */
     --secondary-fixed: #0891b2;
+}
+
+[data-theme="light"] body::before {
+    opacity: 0.1;
+    /* Very subtle gradient on light mode or remove it */
+    background: radial-gradient(circle at 20% 0%, rgba(254, 44, 85, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 90% 90%, rgba(37, 244, 238, 0.05) 0%, transparent 50%);
 }
 
 [data-theme="dark"] {
@@ -55,7 +62,7 @@ body {
     background-color: var(--bg-dark);
 }
 
-/* Vibrant Animated Background Layer */
+/* Reference Image Background Style */
 body::before {
     content: "";
     position: fixed;
@@ -64,11 +71,16 @@ body::before {
     width: 100%;
     height: 100%;
     background:
-        radial-gradient(circle at 10% 20%, rgba(254, 44, 85, 0.05) 0%, transparent 40%),
-        radial-gradient(circle at 90% 80%, rgba(37, 244, 238, 0.05) 0%, transparent 40%);
-    filter: blur(100px);
-    z-index: -3;
+        radial-gradient(circle at 20% 0%, rgba(254, 44, 85, 0.12) 0%, transparent 50%),
+        radial-gradient(circle at 90% 90%, rgba(37, 244, 238, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, #050505 0%, #000000 100%);
+    z-index: -2;
     pointer-events: none;
+}
+
+/* Remove animated blobs/mesh for this specific look */
+body::after {
+    display: none;
 }
 
 .container {
