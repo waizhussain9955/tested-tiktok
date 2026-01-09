@@ -193,8 +193,8 @@ const Home = () => {
                             <h3>Free & Online</h3>
                             <p>No registration, no payment, and no installation required. This is a 100% free TikTok video downloader online tool.</p>
                         </div>
-                        <div className="feature-card">
-                            <i className="fas fa-hv"></i>
+                        <div className="feature-card" style={{ textAlign: 'center' }}>
+                            <i className="fas fa-hv" style={{ display: 'block', margin: '0 auto 1rem', fontSize: '2rem', color: 'var(--primary)' }}></i>
                             <h3>HD & 4K Quality</h3>
                             <p>Download videos in HD TikTok video downloader quality. We support Full HD and 4K resolutions when available.</p>
                         </div>
