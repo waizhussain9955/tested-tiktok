@@ -11,6 +11,12 @@
     # Force Non-WWW
     RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
     RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+
+    # React SPA Routing Catch-All
+    # If the request is not for a real file or directory, serve index.html
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^ index.html [L]
 </IfModule>
 
 # ----------------------------------------------------------------------
@@ -29,7 +35,7 @@
 </IfModule>
 
 # ----------------------------------------------------------------------
-# 3. Enable Browser Caching (Leverage Browser Caching)
+# 3. Enable Browser Caching
 # ----------------------------------------------------------------------
 <IfModule mod_expires.c>
     ExpiresActive On
@@ -59,5 +65,4 @@ Options -Indexes
     RewriteRule ^\.env$ - [F,L]
     RewriteRule ^\.git.*$ - [F,L]
     RewriteRule ^node_modules/.*$ - [F,L]
-    RewriteRule ^vendor/.*$ - [F,L]
 </IfModule>

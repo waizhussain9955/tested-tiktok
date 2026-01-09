@@ -11,4 +11,4 @@ Disallow: /private/
 Disallow: /config/
 
 # Sitemap location
-Sitemap: https://example.com/sitemap.xml
+Sitemap: https://tik-tokdownloader.xyz/sitemap.xml
