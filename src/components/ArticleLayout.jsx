@@ -8,6 +8,7 @@ const ArticleLayout = ({ title, description, keywords, canonical, children }) =>
             <Helmet>
                 <title>{title}</title>
                 <meta name="description" content={description} />
+                <meta name="robots" content="index, follow" />
                 {keywords && <meta name="keywords" content={keywords} />}
                 {canonical && <link rel="canonical" href={canonical} />}
                 <meta property="og:title" content={title} />

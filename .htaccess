@@ -47,7 +47,7 @@
 </IfModule>
 
 # ----------------------------------------------------------------------
-# 4. Security Headers
+# 4. Security Headers & Robots Tag
 # ----------------------------------------------------------------------
 <IfModule mod_headers.c>
     Header set X-XSS-Protection "1; mode=block"
@@ -66,4 +66,5 @@ Options -Indexes
     RewriteRule ^\.env$ - [F,L]
     RewriteRule ^\.git.*$ - [F,L]
     RewriteRule ^node_modules/.*$ - [F,L]
+    RewriteRule ^vendor/.*$ - [F,L]
 </IfModule>

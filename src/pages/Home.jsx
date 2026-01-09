@@ -63,6 +63,7 @@ const Home = () => {
             <Helmet>
                 <title>TikTok Video Downloader – Free HD Quality & No Watermark | Tik-TokDownloader.xyz</title>
                 <meta name="description" content="Free TikTok video downloader to download HD videos without watermark. Fast, safe, and easy TikTok downloader online at Tik-TokDownloader.xyz." />
+                <meta name="robots" content="index, follow" />
                 <link rel="canonical" href="https://tik-tokdownloader.xyz" />
             </Helmet>
 
