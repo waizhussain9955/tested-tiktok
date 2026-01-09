@@ -12,32 +12,12 @@
             "destination": "api/index.py"
         },
         {
-            "source": "/sitemap.xml",
-            "destination": "public/sitemap.xml"
-        },
-        {
-            "source": "/robots.txt",
-            "destination": "public/robots.txt"
-        },
-        {
-            "source": "/.htaccess",
-            "destination": "public/.htaccess"
-        },
-        {
             "source": "/static/(.*)",
             "destination": "public/static/$1"
         },
         {
-            "source": "/",
-            "destination": "public/static/index.html"
-        },
-        {
-            "source": "/(.*).html",
-            "destination": "public/static/$1.html"
-        },
-        {
             "source": "/(.*)",
-            "destination": "public/static/$1"
+            "destination": "public/$1"
         }
     ]
 }
