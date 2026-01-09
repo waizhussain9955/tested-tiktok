@@ -59,7 +59,7 @@ I provide premium services including:
 
 ### 📱 Contact for Purchase or Customization
 *   **Name**: Waiz
-*   **WhatsApp**: [📱 Contact on WhatsApp for purchase or customization](https://wa.me/92XXXXXXXXXX) (Replace with: +92XXXXXXXXXX)
+*   **WhatsApp**: [📱 Contact on WhatsApp for purchase or customization](https://wa.me/923272051549) (Replace with: +923272051547)
 
 ---
 *Built with professional expertise and modern standards.*
