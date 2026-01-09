@@ -162,7 +162,7 @@ const Home = () => {
                     <article>
                         <h2 style={{ marginBottom: '2rem', fontFamily: 'var(--font-heading)' }}>Download TikTok Videos Without Watermark Easily</h2>
                         <p style={{ maxWidth: '800px', margin: '0 auto 1.5rem', color: 'var(--text-muted)' }}>TikTok has become one of the most popular social media platforms in the world, with millions of users creating and sharing short videos every day. From entertainment and education to marketing and creativity, TikTok content is everywhere. However, one common problem users face is downloading videos in HD quality without a watermark. That’s where a reliable TikTok video downloader comes in.</p>
-                        <p style={{ maxWidth: '800px', margin: '0 auto', color: 'var(--text-muted)' }}>If you are looking for a free TikTok video downloader, TikTok video downloader without watermark, or a fast TikTok video downloader online, then <strong>https://tik-tokdownloader.xyz</strong> is the perfect solution. This guide explains everything you need to know about downloading TikTok videos safely, easily, and in the highest quality possible.</p>
+                        <p style={{ maxWidth: '800px', margin: '0 auto', color: 'var(--text-muted)' }}>If you are looking for the <strong>best free TikTok video downloader without watermark</strong>, a fast TikTok video downloader online, or simply want to learn <strong>how to download TikTok video without logo</strong>, then <strong>https://tik-tokdownloader.xyz</strong> is the perfect solution. This guide explains everything you need to know about downloading TikTok videos safely, easily, and in the highest quality possible.</p>
                     </article>
                 </div>
             </section>
@@ -240,6 +240,10 @@ const Home = () => {
                         <article className="feature-card" style={{ marginBottom: '1.5rem', textAlign: 'left', padding: '2rem' }}>
                             <h3 style={{ color: 'var(--secondary-fixed)', marginBottom: '1rem' }}>Can you download TikTok without watermark?</h3>
                             <p>Yes. With the right tool, you can download TikTok without watermark easily using our online platform.</p>
+                        </article>
+                        <article className="feature-card" style={{ marginBottom: '1.5rem', textAlign: 'left', padding: '2rem' }}>
+                            <h3 style={{ color: 'var(--secondary-fixed)', marginBottom: '1rem' }}>How to download TikTok video without logo?</h3>
+                            <p>Simply paste the link into our <strong>TikTok video downloader without logo</strong> tool, and we will remove the watermark for you automatically.</p>
                         </article>
                         <article className="feature-card" style={{ marginBottom: '1.5rem', textAlign: 'left', padding: '2rem' }}>
                             <h3 style={{ color: 'var(--secondary-fixed)', marginBottom: '1rem' }}>Can you download your own TikTok without watermark?</h3>
