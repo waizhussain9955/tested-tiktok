@@ -98,14 +98,17 @@ document.addEventListener('DOMContentLoaded', () => {
                     
                     <div class="stats-grid">
                         <div class="stat-item">
+                            <i class="fas fa-play" style="color: var(--secondary); font-size: 0.8rem; margin-bottom: 0.5rem; display: block;"></i>
                             <span>${formatNumber(video.play_count || 0)}</span>
                             <label>Plays</label>
                         </div>
                         <div class="stat-item">
+                            <i class="fas fa-heart" style="color: var(--primary); font-size: 0.8rem; margin-bottom: 0.5rem; display: block;"></i>
                             <span>${formatNumber(video.like_count || 0)}</span>
                             <label>Likes</label>
                         </div>
                         <div class="stat-item">
+                            <i class="fas fa-share" style="color: #7c3aed; font-size: 0.8rem; margin-bottom: 0.5rem; display: block;"></i>
                             <span>${formatNumber(video.share_count || 0)}</span>
                             <label>Shares</label>
                         </div>
