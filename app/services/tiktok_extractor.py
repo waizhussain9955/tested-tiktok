@@ -25,19 +25,21 @@ class TikTokExtractor:
     """
     
     def __init__(self):
-        # Using a stable, widely accepted Mobile User-Agent
-        self.user_agent = 'Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1'
+        # Using a stable Desktop User-Agent which often returns better structured metadata
+        self.user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36'
         self.headers = {
             'User-Agent': self.user_agent,
-            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8',
-            'Accept-Language': 'en-US,en;q=0.9',
-            'Accept-Encoding': 'gzip, deflate, br',
-            'Connection': 'keep-alive',
-            'Upgrade-Insecure-Requests': '1',
+            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+            'Accept-Language': 'en-US,en;q=0.9,hi;q=0.8,ur;q=0.7',
+            'Cache-Control': 'max-age=0',
+            'Sec-Ch-Ua': '"Google Chrome";v="119", "Chromium";v="119", "Not?A_Brand";v="24"',
+            'Sec-Ch-Ua-Mobile': '?0',
+            'Sec-Ch-Ua-Platform': '"Windows"',
             'Sec-Fetch-Dest': 'document',
             'Sec-Fetch-Mode': 'navigate',
             'Sec-Fetch-Site': 'none',
             'Sec-Fetch-User': '?1',
+            'Upgrade-Insecure-Requests': '1',
         }
         import ssl
         self.ssl_context = ssl.create_default_context()
@@ -163,8 +165,10 @@ class TikTokExtractor:
             r'<script id="__UNIVERSAL_DATA_FOR_REHYDRATION__"[^>]*>(.*?)</script>',
             r'<script id="SIGI_STATE"[^>]*>(.*?)</script>',
             r'<script id="sigi-persisted-data"[^>]*>(.*?)</script>',
+            r'<script id="RENDER_DATA"[^>]*>(.*?)</script>',
             r'window[\'SIGI_STATE\']\s*=\s*({.*?});',
-            r'window.__INITIAL_STATE__\s*=\s*({.*?});'
+            r'window.__INITIAL_STATE__\s*=\s*({.*?});',
+            r'window.__RENDER_DATA__\s*=\s*({.*?});'
         ]
         
         json_data = None
@@ -173,10 +177,15 @@ class TikTokExtractor:
             if match:
                 try:
                     content = match.group(1).strip()
+                    # Clean up URL-encoded content if present (common in __UNIVERSAL_DATA__)
+                    if '%' in content[:20]:
+                        import urllib.parse
+                        content = urllib.parse.unquote(content)
                     json_data = json.loads(content)
                     logger.info(f"Successfully matched pattern: {pattern[:30]}...")
                     break
-                except json.JSONDecodeError:
+                except Exception as e:
+                    logger.debug(f"JSON extract failed for pattern {pattern[:20]}: {e}")
                     continue
         
         if not json_data:
