@@ -101,9 +101,16 @@ body::after {
 .blob {
     position: absolute;
     border-radius: 50%;
-    filter: blur(120px);
+    filter: blur(80px); /* Reduced from 120px for performance */
     opacity: 0.15;
-    animation: pulseGlow 10s infinite alternate ease-in-out;
+    animation: pulseGlow 8s infinite alternate ease-in-out;
+    will-change: transform, opacity; /* Help browser optimize */
+}
+
+@media (max-width: 768px) {
+    .blob {
+        filter: blur(50px); /* Further reduce blur on mobile */
+    }
 }
 
 /* Top Left Pink Glow */
