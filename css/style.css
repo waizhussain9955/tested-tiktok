@@ -1,6 +1,25 @@
+/* Font Display Swap for Icons */
+@font-face {
+    font-family: 'Font Awesome 6 Free';
+    font-style: normal;
+    font-weight: 900;
+    font-display: swap;
+    src: local('Font Awesome 6 Free');
+}
+
+@font-face {
+    font-family: 'Font Awesome 6 Brands';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: local('Font Awesome 6 Brands');
+}
+
 :root {
-    --primary: #fe2c55;
-    --secondary: #25f4ee;
+    --primary: #de1b43;
+    /* Darkened for better contrast with white text */
+    --secondary: #12d6cf;
+    /* Vibrant but accessible */
     --accent: #7c3aed;
     --dark: #000000;
     --bg-dark: #0a0a0a;
@@ -8,9 +27,10 @@
     --card-bg: #1a1a1a;
     /* Solid dark grey/black for better visibility */
     --text-white: #ffffff;
-    --text-muted: #cbd5e1;
+    --text-muted: #e2e8f0;
+    /* Lightened for better contrast */
     /* Lighter grey for better readability */
-    --gradient: linear-gradient(135deg, #fe2c55 0%, #7c3aed 50%, #25f4ee 100%);
+    --gradient: linear-gradient(135deg, #de1b43 0%, #7c3aed 50%, #12d6cf 100%);
     --glass: #232323;
     /* Solid color fallback for glass elements */
     --border: rgba(255, 255, 255, 0.15);
@@ -101,15 +121,18 @@ body::after {
 .blob {
     position: absolute;
     border-radius: 50%;
-    filter: blur(80px); /* Reduced from 120px for performance */
+    filter: blur(80px);
+    /* Reduced from 120px for performance */
     opacity: 0.15;
     animation: pulseGlow 8s infinite alternate ease-in-out;
-    will-change: transform, opacity; /* Help browser optimize */
+    will-change: transform, opacity;
+    /* Help browser optimize */
 }
 
 @media (max-width: 768px) {
     .blob {
-        filter: blur(50px); /* Further reduce blur on mobile */
+        filter: blur(50px);
+        /* Further reduce blur on mobile */
     }
 }
 
@@ -691,10 +714,13 @@ body::after {
 
 .feature-card h3 {
     margin-bottom: 1rem;
+    color: var(--text-white);
 }
 
 .feature-card p {
-    color: var(--text-muted);
+    color: var(--text-white);
+    /* Lightened for better contrast */
+    opacity: 0.95;
 }
 
 /* Feature Section Refined */
@@ -751,19 +777,30 @@ body::after {
 
 .social-icon {
     font-size: 1.5rem;
-    color: var(--text-muted);
+    color: var(--text-white);
+    /* Changed from muted to white */
     transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    opacity: 0.8;
 }
 
 .social-icon:hover {
     color: var(--primary);
     transform: translateY(-5px) scale(1.1);
+    opacity: 1;
 }
 
 .footer-bottom-text {
     font-size: 0.85rem;
-    color: var(--text-muted);
+    color: var(--text-white);
+    /* Lightened for contrast */
     margin-top: 1rem;
+    opacity: 0.9;
+}
+
+.footer-bottom-text a {
+    color: var(--secondary) !important;
+    font-weight: 600;
+    text-decoration: underline;
 }
 
 @media (min-width: 769px) {
