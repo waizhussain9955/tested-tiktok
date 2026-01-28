@@ -1,0 +1,108 @@
+/* Language Selector Container */
+.container {
+    position: relative;
+    /* Fixed dimensions to prevent layout shift */
+    width: 110px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+}
+
+.button {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    width: 100%;
+    height: 100%;
+    padding: 0 0.8rem;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 500;
+    font-family: var(--font-main);
+    /* Ensure consistent font loading */
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    /* Prevent text wrap shifts */
+}
+
+.button:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-white);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.icon {
+    width: 10px;
+    height: 6px;
+    color: currentColor;
+    flex-shrink: 0;
+    margin-left: 0.5rem;
+    opacity: 0.7;
+}
+
+/* Dropdown Menu */
+.dropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    min-width: 140px;
+
+    /* Initial State (Hidden) */
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+    visibility: hidden;
+    /* Important for performance */
+
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.5);
+    z-index: 1100;
+}
+
+.dropdown.open {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+    visibility: visible;
+}
+
+.option {
+    display: block;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    text-align: left;
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background 0.2s;
+    font-family: var(--font-main);
+}
+
+.option:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-white);
+}
+
+.option.active {
+    color: var(--primary);
+    font-weight: 600;
+    background: rgba(222, 27, 67, 0.05);
+}
+
+/* Mobile adjustments if needed, though usually stable */
+@media (max-width: 768px) {
+    .dropdown {
+        right: -20px;
+        /* Adjust for mobile constraints if needed */
+    }
+}
