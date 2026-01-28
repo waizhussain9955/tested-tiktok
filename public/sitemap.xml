@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<<<<<<< HEAD
   <url>
     <loc>https://tik-tokdownloader.xyz/</loc>
     <lastmod>2026-01-14</lastmod>
@@ -40,4 +41,48 @@
     <lastmod>2026-01-20</lastmod>
     <priority>0.5</priority>
   </url>
+=======
+    <url>
+        <loc>https://tik-tokdownloader.xyz/</loc>
+        <lastmod>2026-01-10</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>1.0</priority>
+    </url>
+    <url>
+        <loc>https://tik-tokdownloader.xyz/blog</loc>
+        <lastmod>2026-01-10</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://tik-tokdownloader.xyz/tiktok-video-downloader-apk-android.html</loc>
+        <lastmod>2026-01-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://tik-tokdownloader.xyz/tiktok-video-downloader-4k-hd.html</loc>
+        <lastmod>2026-01-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://tik-tokdownloader.xyz/tiktok-video-downloader-for-pc.html</loc>
+        <lastmod>2026-01-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://tik-tokdownloader.xyz/tiktok-video-downloader-iphone-ios.html</loc>
+        <lastmod>2026-01-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://tik-tokdownloader.xyz/download-tiktok-videos-by-username.html</loc>
+        <lastmod>2026-01-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+>>>>>>> 82e6372d9128e49f33121087838487ff511da192
 </urlset>

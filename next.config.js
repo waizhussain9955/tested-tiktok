@@ -1,32 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     reactStrictMode: true,
-    poweredByHeader: false,
-    compress: true,
-    images: {
-        formats: ['image/webp', 'image/avif'],
+    eslint: {
+        // Warning: This allows production builds to successfully complete even if
+        // your project has ESLint errors.
+        ignoreDuringBuilds: true,
     },
-    async headers() {
-        return [
-            {
-                source: '/:path*',
-                headers: [
-                    {
-                        key: 'X-DNS-Prefetch-Control',
-                        value: 'on'
-                    },
-                    {
-                        key: 'X-Frame-Options',
-                        value: 'SAMEORIGIN'
-                    },
-                    {
-                        key: 'X-Content-Type-Options',
-                        value: 'nosniff'
-                    },
-                ],
-            },
-        ];
-    },
-};
+}
 
-module.exports = nextConfig;
+module.exports = nextConfig

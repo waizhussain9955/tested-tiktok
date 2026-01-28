@@ -1,3 +1,17 @@
 User-agent: *
 Allow: /
+<<<<<<< HEAD
+=======
+
+# Block sensitive paths
+Disallow: /tests/
+Disallow: /venv/
+Disallow: /ENV/
+Disallow: /.git/
+Disallow: /admin/
+Disallow: /private/
+Disallow: /config/
+
+# Sitemap location
+>>>>>>> 82e6372d9128e49f33121087838487ff511da192
 Sitemap: https://tik-tokdownloader.xyz/sitemap.xml
