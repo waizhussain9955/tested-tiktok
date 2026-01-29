@@ -55,6 +55,54 @@ export default function VideoDownloader() {
         }
     };
 
+    const downloadResource = async (e, item) => {
+        e.preventDefault();
+        const btn = e.currentTarget;
+        const originalContent = btn.innerHTML;
+
+        // Visual feedback
+        btn.innerHTML = '<div class="loader" style="display:inline-block; vertical-align:middle; margin-right:8px; width:16px; height:16px; border-width:2px;"></div> Downloading...';
+        btn.style.opacity = "0.8";
+        btn.style.pointerEvents = "none";
+
+        try {
+            // Fetch as blob to force download
+            const response = await fetch(item.url);
+            if (!response.ok) throw new Error('Network response was not ok');
+
+            const blob = await response.blob();
+            const blobUrl = window.URL.createObjectURL(blob);
+            const ext = item.format || 'mp4';
+            const filename = `tiktok_${videoData.video_id}_${item.quality || 'video'}.${ext}`;
+
+            const link = document.createElement('a');
+            link.href = blobUrl;
+            link.setAttribute('download', filename);
+            document.body.appendChild(link);
+            link.click();
+
+            // Cleanup
+            document.body.removeChild(link);
+            window.URL.revokeObjectURL(blobUrl);
+        } catch (err) {
+            console.error("Direct download failed, falling back to link", err);
+            // Fallback
+            const link = document.createElement('a');
+            link.href = item.url;
+            link.setAttribute('download', `tiktok_${videoData.video_id}.${item.format || 'mp4'}`);
+            link.setAttribute('target', '_blank');
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        } finally {
+            setTimeout(() => {
+                btn.innerHTML = originalContent;
+                btn.style.opacity = "1";
+                btn.style.pointerEvents = "auto";
+            }, 1000);
+        }
+    };
+
     return (
         <>
             <div className="converter-card">
@@ -124,21 +172,21 @@ export default function VideoDownloader() {
 
                             <div className="stats-grid">
                                 <div className="stat-item">
-                                    <svg xmlns="http://www.w3.org/2000/svg" height="0.8rem" viewBox="0 0 384 512" fill="var(--secondary)" style={{ marginBottom: '0.5rem', display: 'block' }}>
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="0.8rem" viewBox="0 0 384 512" fill="var(--secondary)" style={{ marginBottom: '0.5rem', display: 'block', margin: '0 auto 0.5rem' }}>
                                         <path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z" />
                                     </svg>
                                     <span>{formatNumber(videoData.play_count || 0)}</span>
                                     <label>Plays</label>
                                 </div>
                                 <div className="stat-item">
-                                    <svg xmlns="http://www.w3.org/2000/svg" height="0.8rem" viewBox="0 0 512 512" fill="var(--primary)" style={{ marginBottom: '0.5rem', display: 'block' }}>
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="0.8rem" viewBox="0 0 512 512" fill="var(--primary)" style={{ marginBottom: '0.5rem', display: 'block', margin: '0 auto 0.5rem' }}>
                                         <path d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z" />
                                     </svg>
                                     <span>{formatNumber(videoData.like_count || 0)}</span>
                                     <label>Likes</label>
                                 </div>
                                 <div className="stat-item">
-                                    <svg xmlns="http://www.w3.org/2000/svg" height="0.8rem" viewBox="0 0 576 512" fill="#7c3aed" style={{ marginBottom: '0.5rem', display: 'block' }}>
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="0.8rem" viewBox="0 0 576 512" fill="#7c3aed" style={{ marginBottom: '0.5rem', display: 'block', margin: '0 auto 0.5rem' }}>
                                         <path d="M352 224H305.5c-45 0-81.5 36.5-81.5 81.5c0 22.3 10.3 34.3 19.2 40.5c6.8 4.7 12.8 12 12.8 20.3c0 9.8-8 17.8-17.8 17.8h-2.5c-2.4 0-4.8-.4-7.1-1.4C210.8 374.8 128 333.4 128 240c0-79.5 64.5-144 144-144h80V34.7C352 15.5 367.5 0 386.7 0c8.6 0 16.8 3.2 23.2 8.9L548.1 133.3c7.6 6.8 11.9 16.5 11.9 26.7s-4.3 19.9-11.9 26.7l-139 125.1c-5.9 5.3-13.5 8.2-21.4 8.2H384c-17.7 0-32-14.3-32-32V224zM80 96c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16H400c8.8 0 16-7.2 16-16V384c0-17.7 14.3-32 32-32s32 14.3 32 32v48c0 44.2-35.8 80-80 80H80c-44.2 0-80-35.8-80-80V112C0 67.8 35.8 32 80 32h48c17.7 0 32 14.3 32 32s-14.3 32-32 32H80z" />
                                     </svg>
                                     <span>{formatNumber(videoData.share_count || 0)}</span>
@@ -146,86 +194,134 @@ export default function VideoDownloader() {
                                 </div>
                             </div>
 
-                            <button
-                                className="download-link"
-                                onClick={async (e) => {
-                                    e.preventDefault();
-                                    const btn = e.currentTarget;
-                                    const originalText = btn.innerText;
-                                    const originalContent = btn.innerHTML;
-
-                                    // Visual feedback
-                                    btn.innerHTML = '<div class="loader" style="display:inline-block; vertical-align:middle; margin-right:8px; width:16px; height:16px; border-width:2px;"></div> Downloading...';
-                                    btn.style.opacity = "0.8";
-                                    btn.style.pointerEvents = "none";
-
-                                    try {
-                                        // Fetch as blob to force download (prevents playing in browser)
-                                        const response = await fetch(videoData.mp4_url);
-                                        if (!response.ok) throw new Error('Network response was not ok');
-
-                                        const blob = await response.blob();
-                                        const url = window.URL.createObjectURL(blob);
-
-                                        const link = document.createElement('a');
-                                        link.href = url;
-                                        link.setAttribute('download', `tiktok_${videoData.video_id}.mp4`);
-                                        document.body.appendChild(link);
-                                        link.click();
-
-                                        // Cleanup
-                                        document.body.removeChild(link);
-                                        window.URL.revokeObjectURL(url);
-                                    } catch (err) {
-                                        console.error("Direct download failed, falling back to link", err);
-                                        // Fallback: Open in new tab which usually triggers download/play
-                                        const link = document.createElement('a');
-                                        link.href = videoData.mp4_url;
-                                        link.setAttribute('download', `tiktok_${videoData.video_id}.mp4`);
-                                        link.setAttribute('target', '_blank');
-                                        document.body.appendChild(link);
-                                        link.click();
-                                        document.body.removeChild(link);
-                                    } finally {
-                                        // Reset button state
-                                        setTimeout(() => {
-                                            btn.innerHTML = originalContent;
-                                            btn.style.opacity = "1";
-                                            btn.style.pointerEvents = "auto";
-                                        }, 1000);
-                                    }
-                                }}
-                                style={{
-                                    display: 'block',
-                                    textAlign: 'center',
-                                    background: 'var(--secondary)',
-                                    color: 'var(--dark)',
-                                    textDecoration: 'none',
-                                    padding: '1.2rem',
-                                    borderRadius: '16px',
-                                    fontWeight: '800',
-                                    fontSize: '1.1rem',
-                                    transition: 'transform 0.3s',
-                                    border: 'none',
-                                    width: '100%',
-                                    cursor: 'pointer',
-                                    marginTop: '1.5rem'
-                                }}
-                            >
-                                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', pointerEvents: 'none' }}>
-                                    <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512" fill="currentColor">
-                                        <path d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32V274.7l-73.4-73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l128 128c12.5 12.5 32.8 12.5 45.3 0l128-128c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L288 274.7V32zM64 352c-35.3 0-64 28.7-64 64v32c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V416c0-35.3-28.7-64-64-64H346.5l-45.3 45.3c-25 25-65.5 25-90.5 0L165.5 352H64zm368 56a24 24 0 1 1 0 48 24 24 0 1 1 0-48z" />
-                                    </svg>
-                                    Download Video
+                            <div className="downloads-section">
+                                <h5 className="section-title">Select Quality</h5>
+                                <div className="downloads-list">
+                                    {videoData.downloads && videoData.downloads.length > 0 ? (
+                                        videoData.downloads.map((item, index) => (
+                                            <button
+                                                key={index}
+                                                className={`download-btn ${item.type === 'audio' ? 'audio-btn' : 'video-btn'}`}
+                                                onClick={(e) => downloadResource(e, item)}
+                                            >
+                                                <div className="btn-icon">
+                                                    {item.type === 'audio' ? (
+                                                        <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512" fill="currentColor"><path d="M499.1 6.3c8.1 6 12.9 15.6 12.9 25.7v72V368c0 44.2-43 80-96 80s-96-35.8-96-80s43-80 96-80c11.2 0 22 1.6 32 4.6V147L192 223.8V432c0 44.2-43 80-96 80s-96-35.8-96-80s43-80 96-80c11.2 0 22 1.6 32 4.6V26.7C128 11.9 140.1 0 154.9 0H482.5c10.7 0 20.1 6 25.1 15.3l-8.5-9zM32 432a48 48 0 1 0 96 0 48 48 0 1 0 -96 0zm384 0a48 48 0 1 0 96 0 48 48 0 1 0 -96 0z" /></svg>
+                                                    ) : (
+                                                        <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512" fill="currentColor"><path d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32V274.7l-73.4-73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l128 128c12.5 12.5 32.8 12.5 45.3 0l128-128c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L288 274.7V32zM64 352c-35.3 0-64 28.7-64 64v32c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V416c0-35.3-28.7-64-64-64H346.5l-45.3 45.3c-25 25-65.5 25-90.5 0L165.5 352H64zm368 56a24 24 0 1 1 0 48 24 24 0 1 1 0-48z" /></svg>
+                                                    )}
+                                                </div>
+                                                <div className="btn-content">
+                                                    <span className="btn-label">{item.label}</span>
+                                                    {item.size && <span className="btn-size">{formatNumber(item.size)}</span>}
+                                                </div>
+                                                <div className="btn-arrow">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" height="0.8em" viewBox="0 0 320 512" fill="currentColor"><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z" /></svg>
+                                                </div>
+                                            </button>
+                                        ))
+                                    ) : (
+                                        <div style={{ color: 'var(--text-muted)' }}>No downloads available.</div>
+                                    )}
                                 </div>
-                            </button>
-                            <p style={{ textAlign: 'center', color: 'var(--text-muted)', fontSize: '0.8rem', marginTop: '1rem' }}>
-                                High quality MP4 ready for download.
+                            </div>
+
+                            <p style={{ textAlign: 'center', color: 'var(--text-muted)', fontSize: '0.8rem', marginTop: '1.5rem', opacity: 0.7 }}>
+                                By downloading you agree to our Terms of Service.
                             </p>
                         </div>
                     </div>
                 </div>
             )}
+
+            <style jsx>{`
+                .section-title {
+                    font-family: var(--font-heading);
+                    font-size: 1.1rem;
+                    margin-bottom: 1rem;
+                    color: var(--text-white);
+                    font-weight: 700;
+                    margin-left: 0.5rem;
+                }
+                
+                .downloads-list {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0.8rem;
+                }
+                
+                .download-btn {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    background: var(--glass);
+                    border: 1px solid var(--border);
+                    padding: 1rem 1.2rem;
+                    border-radius: 16px;
+                    width: 100%;
+                    cursor: pointer;
+                    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+                    text-align: left;
+                    color: var(--text-white);
+                }
+                
+                .download-btn:hover {
+                    background: rgba(255, 255, 255, 0.08);
+                    transform: translateX(4px);
+                    border-color: rgba(255, 255, 255, 0.3);
+                }
+                
+                .video-btn:hover {
+                    border-color: var(--primary);
+                    background: rgba(222, 27, 67, 0.1);
+                }
+                
+                .audio-btn:hover {
+                    border-color: var(--secondary);
+                    background: rgba(18, 214, 207, 0.1);
+                }
+                
+                .btn-icon {
+                    margin-right: 1rem;
+                    color: var(--text-muted);
+                    display: flex;
+                    align-items: center;
+                }
+                
+                .download-btn:hover .btn-icon {
+                    color: var(--text-white);
+                }
+                
+                .btn-content {
+                    flex: 1;
+                    display: flex;
+                    flex-direction: column;
+                }
+                
+                .btn-label {
+                    font-weight: 700;
+                    font-size: 1rem;
+                }
+                
+                .btn-size {
+                    font-size: 0.75rem;
+                    color: var(--text-muted);
+                    margin-top: 2px;
+                }
+                
+                .btn-arrow {
+                    color: var(--text-muted);
+                    opacity: 0.5;
+                }
+                
+                .download-btn:hover .btn-arrow {
+                    opacity: 1;
+                    transform: translateX(2px);
+                }
+                
+                /* Resetting margin for stats svg */
+                /* Inline styles used in JSX overrides this, but good to have fallback */
+            `}</style>
         </>
     );
 }

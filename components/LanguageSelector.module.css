@@ -9,7 +9,7 @@
 }
 
 .button {
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(222, 218, 218, 0.211);
     border: 1px solid var(--border);
     color: var(--text-muted);
     width: 100%;
@@ -89,14 +89,14 @@
 }
 
 .option:hover {
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(222, 218, 218, 0.211);
     color: var(--text-white);
 }
 
 .option.active {
     color: var(--primary);
     font-weight: 600;
-    background: rgba(222, 27, 67, 0.05);
+    background: rgba(222, 27, 66, 0.112);
 }
 
 /* Mobile adjustments if needed, though usually stable */

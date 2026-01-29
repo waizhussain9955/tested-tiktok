@@ -19,8 +19,8 @@
 [data-theme="light"] {
   --bg-dark: #f0f2f5;
   --card-bg: #ffffff;
-  --text-white: #1e293b;
-  --text-muted: #64748b;
+  --text-white: #bd2525;
+  --text-muted: #000000;
   --glass: #ffffff;
   --border: #e2e8f0;
   --card-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.1);

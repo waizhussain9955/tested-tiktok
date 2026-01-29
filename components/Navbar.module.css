@@ -4,7 +4,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1000;
+    z-index: 1002;
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     border-bottom: 1px solid transparent;
 }
@@ -13,7 +13,7 @@
     background: rgba(8, 8, 8, 0.85);
     /* Deep dark for premium feel */
     backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.968);
     height: 70px;
 }
 
@@ -55,7 +55,7 @@
     font-weight: 700;
     font-size: 1.35rem;
     letter-spacing: -0.02em;
-    color: var(--text-white);
+    color: #a0a8b6;
     position: relative;
 }
 
@@ -115,6 +115,13 @@
     gap: 1rem;
 }
 
+/* Wrapper for Desktop Only Items */
+.desktopActions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
 .themeBtn {
     width: 36px;
     height: 36px;
@@ -130,13 +137,13 @@
 }
 
 .themeBtn:hover {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.266);
     color: var(--text-white);
-    border-color: rgba(255, 255, 255, 0.2);
+    border-color: rgba(125, 122, 122, 0.434);
     transform: translateY(-1px);
 }
 
-/* Mobile Menu */
+/* Mobile Menu Button */
 .mobileMenuBtn {
     display: none;
     flex-direction: column;
@@ -181,10 +188,12 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 2.5rem;
+    gap: 1.5rem;
+    /* Reduced gap to fit actions */
     opacity: 0;
     pointer-events: none;
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    padding: 2rem;
 }
 
 .mobileNavOpen {
@@ -205,9 +214,32 @@
     opacity: 0;
     transform: translateY(20px);
     transition: all 0.4s ease;
+    position: relative;
+}
+
+.activeMobileLink {
+    color: var(--primary);
+    /* Simple highlight color */
+}
+
+/* Actions inside Mobile Menu */
+.mobileActions {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s ease 0.4s;
+    /* Delayed appearance */
 }
 
 .mobileNavOpen .mobileNavLink {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.mobileNavOpen .mobileActions {
     opacity: 1;
     transform: translateY(0);
 }
@@ -217,29 +249,34 @@
 }
 
 .mobileNavOpen .mobileNavLink:nth-child(2) {
-    transition-delay: 0.2s;
+    transition-delay: 0.15s;
 }
 
 .mobileNavOpen .mobileNavLink:nth-child(3) {
-    transition-delay: 0.3s;
+    transition-delay: 0.2s;
 }
 
 .mobileNavOpen .mobileNavLink:nth-child(4) {
-    transition-delay: 0.4s;
+    transition-delay: 0.25s;
 }
 
 .mobileNavOpen .mobileNavLink:nth-child(5) {
-    transition-delay: 0.5s;
+    transition-delay: 0.3s;
 }
 
 .mobileNavOpen .mobileNavLink:nth-child(6) {
-    transition-delay: 0.6s;
+    transition-delay: 0.35s;
 }
 
-/* Responsive */
+/* Responsive Logic */
 @media (max-width: 1024px) {
     .centerNav {
         display: none;
+    }
+
+    .desktopActions {
+        display: none;
+        /* Hide top bar actions on mobile/tablet */
     }
 
     .mobileMenuBtn {
@@ -247,12 +284,17 @@
     }
 
     .rightActions {
-        margin-right: 1rem;
+        margin-right: 0;
+        /* Reset margin */
     }
 }
 
 @media (max-width: 480px) {
     .logoText {
         font-size: 1.1rem;
+    }
+
+    .mobileNavLink {
+        font-size: 1.7rem;
     }
 }
