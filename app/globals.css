@@ -1,6 +1,6 @@
 /* 
-  TTK Downloader - High-End Premium Visuals
-  Theme: Royal Blue (#6366f1) & Soft Frost (#f5f3ff)
+  TTK Downloader - Professional Human-Designed Aesthetic
+  Focus: Visual Hierarchy, Typographic Contrast, and Dynamic Flow
 */
 
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Outfit:wght@600;700;800;900&display=swap');
@@ -13,21 +13,26 @@
 
   --bg-page: #ffffff;
   --bg-subtle: #f8fafc;
+  --bg-accent: #f1f5f9;
+
   --text-main: #0f172a;
   --text-body: #334155;
   --text-muted: #64748b;
 
   --border: #e2e8f0;
+  --radius-2xl: 48px;
   --radius-xl: 32px;
   --radius-lg: 20px;
+  --radius-md: 12px;
 
   --shadow-premium: 0 20px 40px -15px rgba(99, 102, 241, 0.2);
   --shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
+  --shadow-hover: 0 20px 50px -12px rgba(0, 0, 0, 0.08);
 
   --font-main: 'Plus Jakarta Sans', sans-serif;
   --font-heading: 'Outfit', sans-serif;
 
-  --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 * {
@@ -40,17 +45,17 @@ body {
   background-color: var(--bg-page);
   color: var(--text-body);
   font-family: var(--font-main);
-  line-height: 1.6;
+  line-height: 1.7;
   -webkit-font-smoothing: antialiased;
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1240px;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 2rem;
 }
 
-/* Typography Masterclass */
+/* Typography Mastery */
 h1,
 h2,
 h3,
@@ -58,161 +63,275 @@ h4 {
   font-family: var(--font-heading);
   color: var(--text-main);
   font-weight: 900;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
 }
 
 h1 {
-  font-size: clamp(3rem, 10vw, 5rem);
-  line-height: 1;
+  font-size: clamp(3.5rem, 10vw, 5.5rem);
 }
 
 h2 {
-  font-size: clamp(2.25rem, 6vw, 3.5rem);
-  line-height: 1.1;
+  font-size: clamp(2.5rem, 6vw, 4rem);
   margin-bottom: 2rem;
 }
 
+h3 {
+  font-size: 1.75rem;
+  color: var(--text-main);
+}
+
 p {
-  font-size: 1.15rem;
-  line-height: 1.8;
+  font-size: 1.125rem;
   color: var(--text-body);
+  max-width: 720px;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.section-title p {
+  margin: 1.5rem auto 0;
+  font-size: 1.25rem;
+  color: var(--text-muted);
 }
 
 /* Premium Hero Overlay */
 .hero {
-  padding: 200px 0 120px;
-  background: radial-gradient(circle at 15% 15%, var(--primary-soft), transparent 40%),
-    radial-gradient(circle at 85% 85%, var(--primary-soft), transparent 40%);
+  padding: 220px 0 140px;
+  background: radial-gradient(circle at 10% 20%, var(--primary-soft), transparent 30%),
+    radial-gradient(circle at 90% 80%, var(--primary-soft), transparent 30%);
   text-align: center;
   position: relative;
+  overflow: hidden;
 }
 
 .hero-title span {
+  display: block;
   background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .hero-subtitle {
-  max-width: 750px;
-  margin: 2rem auto 4rem;
+  max-width: 800px;
+  margin: 2.5rem auto 4.5rem;
   font-weight: 500;
   color: var(--text-muted);
+  font-size: 1.35rem;
 }
 
-/* Section Transitions */
+/* Dynamic Section Layouts */
 .section {
-  padding: 140px 0;
+  padding: 160px 0;
 }
 
-.section-bg {
+.section-rounded {
   background: var(--bg-subtle);
-  border-radius: 64px;
-  margin: 0 20px;
+  border-radius: var(--radius-2xl);
+  margin: 0 1rem;
+  padding: 120px 0;
 }
 
-/* Content Visuals */
-.human-content {
-  max-width: 900px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.human-content p {
-  margin-bottom: 2.5rem;
-}
-
-.human-content ul {
+/* Grid Systems */
+.feat-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-  list-style: none;
-  margin: 4rem 0;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 2rem;
+  margin-top: 4rem;
 }
 
-.human-content ul li {
+.feat-item {
   background: #fff;
-  padding: 2rem;
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-card);
-  border: 1px solid var(--border);
-  font-weight: 700;
-  color: var(--primary);
-  transition: var(--transition);
-}
-
-.human-content ul li:hover {
-  transform: translateY(-10px);
-  border-color: var(--primary);
-  box-shadow: var(--shadow-premium);
-}
-
-/* Card Visuals */
-.card {
-  background: #fff;
-  padding: 3rem;
+  padding: 3.5rem;
   border-radius: var(--radius-xl);
   border: 1px solid var(--border);
-  box-shadow: var(--shadow-card);
   transition: var(--transition);
-  text-align: left;
+  position: relative;
+  overflow: hidden;
 }
 
-.card:hover {
+.feat-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 0;
+  background: var(--primary);
+  transition: var(--transition);
+}
+
+.feat-item:hover {
+  transform: translateY(-12px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--primary-light);
+}
+
+.feat-item:hover::before {
+  height: 100%;
+}
+
+.feat-item h3 {
+  margin-bottom: 1.25rem;
+}
+
+.feat-item p {
+  font-size: 1.05rem;
+}
+
+/* Step-by-Step Experience */
+.step-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.step-card {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 2.5rem;
+  align-items: start;
+  padding: 3rem;
+  background: #fff;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border);
+  transition: var(--transition);
+}
+
+.step-card:hover {
   transform: scale(1.02);
   box-shadow: var(--shadow-premium);
+  border-color: var(--primary-soft);
 }
 
-/* Action Elements */
+.step-num {
+  width: 80px;
+  height: 80px;
+  background: var(--primary-soft);
+  color: var(--primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-weight: 950;
+  font-size: 2rem;
+}
+
+/* FAQ Precision */
+.faq-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.faq-card {
+  background: #fff;
+  padding: 2.5rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  transition: var(--transition);
+}
+
+.faq-card:hover {
+  border-color: var(--primary);
+  background: var(--primary-soft);
+}
+
+.faq-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+.faq-card p {
+  font-size: 1.05rem;
+  margin: 0;
+}
+
+/* Action Button Premium */
 .btn {
-  height: 68px;
-  padding: 0 4rem;
+  height: 72px;
+  padding: 0 4.5rem;
   background: var(--primary);
   color: #fff;
   border-radius: 999px;
   border: none;
-  font-weight: 800;
+  font-weight: 900;
   font-family: var(--font-heading);
-  font-size: 1.25rem;
+  font-size: 1.35rem;
   cursor: pointer;
   transition: var(--transition);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 10px 30px -10px rgba(99, 102, 241, 0.5);
+  box-shadow: 0 15px 35px -10px rgba(99, 102, 241, 0.4);
+  text-decoration: none;
 }
 
 .btn:hover {
   background: var(--primary-dark);
-  transform: translateY(-5px);
-  box-shadow: 0 20px 40px -15px rgba(99, 102, 241, 0.6);
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 0 25px 45px -15px rgba(99, 102, 241, 0.5);
 }
 
 .badge {
   background: var(--primary-soft);
   color: var(--primary);
-  padding: 10px 24px;
+  padding: 12px 28px;
   border-radius: 999px;
-  font-weight: 900;
-  font-size: 0.9rem;
-  letter-spacing: 0.1em;
+  font-weight: 950;
+  font-size: 0.95rem;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
   display: inline-block;
+  box-shadow: inset 0 0 0 1px rgba(99, 102, 241, 0.1);
 }
 
-/* Mobile Polish */
-@media (max-width: 768px) {
+/* Mobile & Tablet Refinements */
+@media (max-width: 1024px) {
   .section {
-    padding: 100px 0;
+    padding: 120px 0;
   }
 
-  .section-bg {
+  .feat-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+
+  .section-rounded {
     border-radius: 32px;
-    margin: 0 10px;
+    margin: 0 0.5rem;
+    padding: 80px 0;
   }
 
-  .card {
-    padding: 2rem;
+  .step-card {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .step-num {
+    margin: 0 auto;
+  }
+
+  h1 {
+    font-size: 3.5rem;
+  }
+
+  h2 {
+    font-size: 2.5rem;
   }
 }
