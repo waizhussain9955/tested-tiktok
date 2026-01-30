@@ -185,19 +185,19 @@ export default function VideoDownloader() {
                     background: #fff;
                     border: 1px solid var(--border);
                     border-radius: var(--radius-lg);
-                    padding: 0.5rem;
-                    box-shadow: var(--shadow-md);
+                    padding: 0.75rem;
+                    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05);
                 }
 
                 .input-row {
                     display: flex;
                     flex-direction: column;
-                    gap: 0.5rem;
+                    gap: 0.75rem;
                 }
 
                 @media (min-width: 640px) {
-                    .input-row { flex-direction: row; padding: 0.25rem; border-radius: 999px; }
-                    .search-card { border-radius: 999px; }
+                    .input-row { flex-direction: row; align-items: stretch; background: #f8fafc; padding: 0.5rem; border-radius: 999px; border: 1px solid var(--border); }
+                    .search-card { border-radius: 999px; padding: 0.5rem; border: none; background: transparent; box-shadow: none; }
                 }
 
                 .input-container {
@@ -206,30 +206,33 @@ export default function VideoDownloader() {
                     align-items: center;
                     background: #f1f5f9;
                     border-radius: var(--radius-md);
-                    padding: 0 0.5rem;
+                    padding: 0 0.75rem;
+                    min-height: 56px;
                 }
 
-                @media (min-width: 640px) { .input-container { background: transparent; } }
+                @media (min-width: 640px) { .input-container { background: transparent; min-height: auto; } }
 
                 input {
                     flex: 1;
                     border: none;
                     background: transparent;
-                    padding: 0.875rem 0.5rem;
-                    font-size: 14px;
+                    padding: 0.75rem 0.5rem;
+                    font-size: 16px; /* Prevents iOS auto-zoom */
                     outline: none;
                     width: 100%;
+                    color: var(--text-main);
                 }
 
                 .small-paste-btn {
                     background: #fff;
                     border: 1px solid var(--border);
                     border-radius: var(--radius-sm);
-                    padding: 0.4rem 0.8rem;
-                    font-size: 12px;
-                    font-weight: 600;
+                    padding: 0.5rem 1rem;
+                    font-size: 13px;
+                    font-weight: 700;
                     cursor: pointer;
                     white-space: nowrap;
+                    color: var(--primary);
                 }
 
                 .action-btn {
@@ -237,49 +240,72 @@ export default function VideoDownloader() {
                     color: #fff;
                     border: none;
                     border-radius: var(--radius-md);
-                    padding: 0.875rem 1.5rem;
+                    min-height: 56px;
+                    padding: 0 2rem;
                     font-weight: 700;
                     cursor: pointer;
-                    font-size: 14px;
-                    transition: all 0.2s;
+                    font-size: 16px;
+                    transition: transform 0.1s;
                     position: relative;
                 }
 
                 @media (min-width: 640px) { .action-btn { border-radius: 999px; } }
 
-                .action-btn:hover { background: var(--primary-hover); }
+                .action-btn:active { transform: scale(0.98); }
 
                 .error-box {
                     margin-top: 1rem;
-                    padding: 0.75rem 1rem;
+                    padding: 0.75rem 1.25rem;
                     background: #fef2f2;
                     border: 1px solid #fee2e2;
                     color: #b91c1c;
                     border-radius: var(--radius-md);
-                    font-size: 13px;
+                    font-size: 14px;
                 }
 
                 .result-area { margin-top: 32px; animation: slideUp 0.3s ease; }
 
-                .author-row { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; overflow: hidden; }
-                .avatar { width: 40px; height: 40px; background: #eef2ff; color: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; border: 1px solid var(--border); flex-shrink: 0; }
-                .m-0 { margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-                .text-muted { color: var(--text-muted); font-size: 13px; }
-                .caption-text { font-size: 14px; margin-bottom: 1.5rem; word-break: break-word; }
+                .author-row { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem; }
+                .avatar { width: 44px; height: 44px; background: #eef2ff; color: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; border: 1px solid var(--border); flex-shrink: 0; }
+                .m-0 { margin: 0; }
+                .text-muted { color: var(--text-muted); font-size: 14px; }
+                .caption-text { font-size: 15px; margin-bottom: 2rem; line-height: 1.6; }
 
-                .stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.375rem; margin-bottom: 1.5rem; }
-                .stat { background: #f8fafc; padding: 0.5rem 0.25rem; border-radius: var(--radius-md); text-align: center; border: 1px solid var(--border); min-width: 0; }
-                .stat strong { display: block; font-size: 13px; overflow: hidden; text-overflow: ellipsis; }
-                .stat label { font-size: 9px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.02em; }
+                .stats-row { 
+                    display: grid; 
+                    grid-template-columns: repeat(2, 1fr); 
+                    gap: 0.75rem; 
+                    margin-bottom: 2rem; 
+                }
 
-                .dl-list { display: flex; flex-direction: column; gap: 0.5rem; }
-                .dl-button { display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.25rem; background: #fff; border: 1px solid var(--border); border-radius: var(--radius-md); cursor: pointer; transition: 0.2s; color: var(--text-main); }
-                .dl-button:hover { border-color: var(--primary); background: #f5f3ff; }
+                @media (min-width: 640px) {
+                    .stats-row { grid-template-columns: repeat(4, 1fr); }
+                }
+
+                .stat { background: #f8fafc; padding: 0.75rem 0.5rem; border-radius: var(--radius-md); text-align: center; border: 1px solid var(--border); }
+                .stat strong { display: block; font-size: 15px; color: var(--text-main); }
+                .stat label { font-size: 10px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; }
+
+                .dl-list { display: flex; flex-direction: column; gap: 0.75rem; }
+                .dl-button { 
+                    display: flex; 
+                    align-items: center; 
+                    justify-content: space-between; 
+                    padding: 1.25rem; 
+                    background: #fff; 
+                    border: 1px solid var(--border); 
+                    border-radius: var(--radius-md); 
+                    cursor: pointer; 
+                    transition: all 0.2s; 
+                    color: var(--text-main); 
+                    min-height: 64px;
+                }
+                .dl-button:active { background: #f1f5f9; }
                 .dl-meta { display: flex; flex-direction: column; align-items: flex-start; }
-                .dl-name { font-weight: 700; font-size: 14px; }
-                .dl-size { font-size: 11px; color: var(--text-muted); }
+                .dl-name { font-weight: 700; font-size: 15px; }
+                .dl-size { font-size: 12px; color: var(--text-muted); }
 
-                .loader { display: none; width: 16px; height: 16px; border: 2px solid rgba(255,255,255,0.3); border-top-color: #fff; border-radius: 50%; animation: spin 0.8s linear infinite; position: absolute; left: 50%; top: 50%; margin-left: -8px; margin-top: -8px; }
+                .loader { display: none; width: 20px; height: 20px; border: 2px solid rgba(255,255,255,0.3); border-top-color: #fff; border-radius: 50%; animation: spin 0.8s linear infinite; position: absolute; left: 50%; top: 50%; margin-left: -10px; margin-top: -10px; }
                 @keyframes spin { to { transform: rotate(360deg); } }
                 .loading span { opacity: 0; }
                 .loading .loader { display: block; }
