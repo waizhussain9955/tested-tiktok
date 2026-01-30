@@ -77,17 +77,17 @@ export default function Home() {
                     <div className="grid grid-3">
                         <div className="card text-center">
                             <div className="h3 mb-2" style={{ color: 'var(--primary)' }}>01</div>
-                            <h4 className="mb-1">Copy Link</h4>
+                            <h3 className="mb-1">Copy Link</h3>
                             <p className="text-muted">Open TikTok and copy the video URL you want to download.</p>
                         </div>
                         <div className="card text-center">
                             <div className="h3 mb-2" style={{ color: 'var(--primary)' }}>02</div>
-                            <h4 className="mb-1">Paste URL</h4>
+                            <h3 className="mb-1">Paste URL</h3>
                             <p className="text-muted">Paste the link into the input field above and hit download.</p>
                         </div>
                         <div className="card text-center">
                             <div className="h3 mb-2" style={{ color: 'var(--primary)' }}>03</div>
-                            <h4 className="mb-1">Save Video</h4>
+                            <h3 className="mb-1">Save Video</h3>
                             <p className="text-muted">Choose your preferred quality and save the file to your device.</p>
                         </div>
                     </div>
