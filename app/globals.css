@@ -254,11 +254,18 @@ p {
 
 /* Human-Centric Content Styling */
 .human-content {
-  max-width: 720px;
+  max-width: 840px;
   margin-left: auto;
   margin-right: auto;
-  text-align: left;
+  text-align: center;
   padding: 48px 0;
+}
+
+.human-content h2,
+.human-content h3 {
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
 }
 
 .human-content p {
@@ -270,6 +277,16 @@ p {
   /* Soft dark gray */
   margin-bottom: 20px;
   max-width: 100%;
+}
+
+.human-content ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 24px;
+}
+
+.human-content ul li {
+  margin-bottom: 8px;
 }
 
 @media (max-width: 767px) {
