@@ -66,10 +66,9 @@ export default function RootLayout({ children }) {
                 <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png" />
                 <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png" />
                 <link rel="apple-touch-icon" href="/img/apple-touch-icon.png" />
-                <meta name="theme-color" content="#0a0a0a" />
+                <meta name="theme-color" content="#ffffff" />
             </head>
             <body className={`${outfit.variable} ${plusJakartaSans.variable}`} suppressHydrationWarning>
-                <BackgroundBlobs />
                 <Navbar />
                 <main>{children}</main>
                 <Footer />

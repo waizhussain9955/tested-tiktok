@@ -1,8 +1,8 @@
 .siteFooter {
     border-top: 1px solid var(--border);
-    background: var(--bg-dark);
+    background: #ffffff;
     padding: 4rem 0 2rem;
-    margin-top: auto;
+    margin-top: 4rem;
 }
 
 .footerContent {
@@ -16,7 +16,7 @@
     font-family: var(--font-heading);
     font-weight: 700;
     font-size: 1.5rem;
-    color: var(--text-white);
+    color: var(--text-main);
     margin-bottom: 1rem;
     display: block;
 }
@@ -24,24 +24,24 @@
 .footerDesc {
     color: var(--text-muted);
     line-height: 1.6;
-    max-width: 300px;
-    font-size: 0.95rem;
+    max-width: 320px;
+    font-size: 0.9375rem;
 }
 
 .footerLinksGroup h4 {
-    color: var(--text-white);
+    color: var(--text-main);
     font-size: 1rem;
-    margin-bottom: 1.5rem;
-    font-weight: 600;
+    margin-bottom: 1.25rem;
+    font-weight: 700;
 }
 
 .footerLinksGroup a {
     display: block;
     color: var(--text-muted);
     text-decoration: none;
-    margin-bottom: 0.8rem;
-    font-size: 0.95rem;
-    transition: color 0.2s;
+    margin-bottom: 0.75rem;
+    font-size: 0.875rem;
+    transition: color 0.2s ease;
 }
 
 .footerLinksGroup a:hover {
@@ -55,7 +55,7 @@
     justify-content: space-between;
     align-items: center;
     color: var(--text-muted);
-    font-size: 0.9rem;
+    font-size: 0.8125rem;
 }
 
 @media (max-width: 768px) {

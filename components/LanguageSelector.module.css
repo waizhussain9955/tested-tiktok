@@ -1,69 +1,53 @@
-/* Language Selector Container */
 .container {
     position: relative;
-    /* Fixed dimensions to prevent layout shift */
-    width: 110px;
+    width: 100px;
     height: 36px;
     display: flex;
     align-items: center;
 }
 
 .button {
-    background: rgba(222, 218, 218, 0.211);
+    background: #f1f5f9;
     border: 1px solid var(--border);
     color: var(--text-muted);
     width: 100%;
     height: 100%;
-    padding: 0 0.8rem;
-    border-radius: 10px;
+    padding: 0 0.75rem;
+    border-radius: var(--radius-sm);
     display: flex;
     align-items: center;
     justify-content: space-between;
     cursor: pointer;
-    font-size: 0.85rem;
-    font-weight: 500;
-    font-family: var(--font-main);
-    /* Ensure consistent font loading */
+    font-size: 0.8125rem;
+    font-weight: 600;
     transition: all 0.2s ease;
-    white-space: nowrap;
-    /* Prevent text wrap shifts */
 }
 
 .button:hover {
-    background: rgba(255, 255, 255, 0.1);
-    color: var(--text-white);
-    border-color: rgba(255, 255, 255, 0.2);
+    background: #e2e8f0;
+    color: var(--text-main);
 }
 
 .icon {
     width: 10px;
     height: 6px;
-    color: currentColor;
-    flex-shrink: 0;
-    margin-left: 0.5rem;
     opacity: 0.7;
 }
 
-/* Dropdown Menu */
 .dropdown {
     position: absolute;
     top: calc(100% + 8px);
     right: 0;
-    background: var(--card-bg);
+    background: #ffffff;
     border: 1px solid var(--border);
-    border-radius: 12px;
-    overflow: hidden;
-    min-width: 140px;
-
-    /* Initial State (Hidden) */
+    border-radius: var(--radius-md);
+    min-width: 120px;
     opacity: 0;
-    transform: translateY(-10px);
+    transform: translateY(-8px);
     pointer-events: none;
     visibility: hidden;
-    /* Important for performance */
-
-    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.5);
+    transition: all 0.2s ease;
+    box-shadow: var(--shadow-lg);
     z-index: 1100;
 }
 
@@ -77,32 +61,23 @@
 .option {
     display: block;
     width: 100%;
-    padding: 0.75rem 1rem;
+    padding: 0.625rem 0.875rem;
     text-align: left;
     background: transparent;
     border: none;
     color: var(--text-muted);
-    font-size: 0.85rem;
+    font-size: 0.8125rem;
     cursor: pointer;
-    transition: background 0.2s;
-    font-family: var(--font-main);
+    transition: all 0.2s ease;
 }
 
 .option:hover {
-    background: rgba(222, 218, 218, 0.211);
-    color: var(--text-white);
+    background: #f8fafc;
+    color: var(--text-main);
 }
 
 .option.active {
     color: var(--primary);
-    font-weight: 600;
-    background: rgba(222, 27, 66, 0.112);
-}
-
-/* Mobile adjustments if needed, though usually stable */
-@media (max-width: 768px) {
-    .dropdown {
-        right: -20px;
-        /* Adjust for mobile constraints if needed */
-    }
+    background: #f5f3ff;
+    font-weight: 700;
 }
