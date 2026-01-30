@@ -142,12 +142,16 @@ export default function VideoDownloader() {
 
                         <div className="stats-row">
                             <div className="stat">
-                                <strong>{formatNumber(videoData.play_count || 0)}</strong>
-                                <label>Plays</label>
-                            </div>
-                            <div className="stat">
                                 <strong>{formatNumber(videoData.like_count || 0)}</strong>
                                 <label>Likes</label>
+                            </div>
+                            <div className="stat">
+                                <strong>{formatNumber(videoData.follower_count || 0)}</strong>
+                                <label>Followers</label>
+                            </div>
+                            <div className="stat">
+                                <strong>{formatNumber(videoData.play_count || 0)}</strong>
+                                <label>Plays</label>
                             </div>
                             <div className="stat">
                                 <strong>{formatNumber(videoData.share_count || 0)}</strong>
@@ -263,7 +267,7 @@ export default function VideoDownloader() {
                 .text-muted { color: var(--text-muted); font-size: 13px; }
                 .caption-text { font-size: 14px; margin-bottom: 1.5rem; word-break: break-word; }
 
-                .stats-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.375rem; margin-bottom: 1.5rem; }
+                .stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.375rem; margin-bottom: 1.5rem; }
                 .stat { background: #f8fafc; padding: 0.5rem 0.25rem; border-radius: var(--radius-md); text-align: center; border: 1px solid var(--border); min-width: 0; }
                 .stat strong { display: block; font-size: 13px; overflow: hidden; text-overflow: ellipsis; }
                 .stat label { font-size: 9px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.02em; }

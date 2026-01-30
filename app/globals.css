@@ -264,3 +264,76 @@ video {
 .text-muted {
   color: var(--text-muted);
 }
+
+/* New Helpers */
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background: var(--primary);
+  color: white;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.tiny {
+  font-size: 0.75rem;
+}
+
+.flex-wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.gap-1 {
+  gap: 0.5rem;
+}
+
+.opacity-80 {
+  opacity: 0.8;
+}
+
+.faq-item {
+  background: var(--bg-card);
+  padding: 1.5rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+}
+
+.bg-dark {
+  background-color: #0f172a;
+}
+
+.text-white {
+  color: #ffffff;
+}
+
+.text-light {
+  color: #f1f5f9;
+}
+
+.border {
+  border: 1px solid var(--border);
+}
+
+.border-none {
+  border: none;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.grid-5 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .grid-5 {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}

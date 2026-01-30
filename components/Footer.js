@@ -18,14 +18,14 @@ export default function Footer() {
           </div>
 
           <div className={styles.footerLinksGroup}>
-            <h4>Quick Links</h4>
+            <h3>Quick Links</h3>
             <Link href="/">Home</Link>
             <Link href="/blog">Blog</Link>
             <Link href="/about-us">About Us</Link>
           </div>
 
           <div className={styles.footerLinksGroup}>
-            <h4>Legal</h4>
+            <h3>Legal</h3>
             <Link href="/terms">Terms of Service</Link>
             <Link href="/privacy">Privacy Policy</Link>
             <Link href="/dmca">DMCA</Link>

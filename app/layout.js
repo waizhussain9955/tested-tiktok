@@ -18,8 +18,8 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 
 export const metadata = {
     metadataBase: new URL('https://tik-tokdownloader.xyz'),
-    title: 'TikTok Video Downloader – Free HD Quality & No Watermark | Tik-TokDownloader.xyz',
-    description: 'Free TikTok video downloader to download HD videos without watermark. Fast, safe, and easy TikTok downloader online at Tik-TokDownloader.xyz.',
+    title: 'TTK – Fast & Free TikTok Video Downloader Online by Link',
+    description: 'Fast and free TikTok video downloader to save HD videos without watermark. Download TikTok videos online by link in seconds.',
     keywords: 'TikTok video downloader, TikTok video downloader without watermark, TikTok video downloader HD, TikTok downloader online free, TikTok downloader no watermark, Download TikTok videos MP4',
     authors: [{ name: 'Waiz-Hussain' }],
     creator: 'Waiz-Hussain',
@@ -30,8 +30,8 @@ export const metadata = {
         telephone: false,
     },
     openGraph: {
-        title: 'TikTok Video Downloader – Free HD Quality & No Watermark',
-        description: 'Download TikTok videos in HD quality without watermark using Tik-TokDownloader.xyz. Fast, free, and secure TikTok video downloader online.',
+        title: 'TTK – Fast & Free TikTok Video Downloader Online by Link',
+        description: 'Fast and free TikTok video downloader to save HD videos without watermark. Download TikTok videos online by link in seconds.',
         url: 'https://tik-tokdownloader.xyz',
         siteName: 'Tik-TokDownloader.xyz',
         locale: 'en_US',
@@ -39,8 +39,8 @@ export const metadata = {
     },
     twitter: {
         card: 'summary_large_image',
-        title: 'TikTok Video Downloader – Free HD Quality & No Watermark',
-        description: 'Free TikTok video downloader to download HD videos without watermark. Fast, safe, and easy to use.',
+        title: 'TTK – Fast & Free TikTok Video Downloader Online by Link',
+        description: 'Fast and free TikTok video downloader to save HD videos without watermark. Download TikTok videos online by link in seconds.',
     },
     robots: {
         index: true,
