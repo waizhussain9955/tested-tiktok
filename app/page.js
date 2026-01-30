@@ -122,9 +122,7 @@ export default function Home() {
                 </div>
             </section>
 
-            <style jsx>{`
-                .text-muted { color: var(--text-muted); }
-            `}</style>
         </>
     );
 }
+
