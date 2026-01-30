@@ -33,14 +33,14 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* Intro Section: Clear starting point, consistent padding */}
+            {/* Intro Section: Human-Centric Styling */}
             <section className="section section-bg">
                 <div className="container">
-                    <div className="card" style={{ border: 'none', boxShadow: 'var(--shadow)' }}>
+                    <div className="human-content">
                         <p>
                             If you've ever tried to save a TikTok video for later, you've probably noticed that annoying watermark stamped across the screen. Whether you're a content creator looking to repurpose videos, a marketer building a portfolio, or simply someone who wants to save memorable moments without that distracting logo, you're in the right place.
                         </p>
-                        <p className="mb-0">
+                        <p>
                             TikTok does not provide a built-in option to download videos without a watermark, and that’s where a powerful TikTok video downloader like TTK Downloader becomes essential. Our tool is engineered for precision, speed, and ease of use.
                         </p>
                     </div>

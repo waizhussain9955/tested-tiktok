@@ -251,3 +251,34 @@ p {
     /* Better for mobile readability */
   }
 }
+
+/* Human-Centric Content Styling */
+.human-content {
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  padding: 48px 0;
+}
+
+.human-content p {
+  font-size: 1.0625rem;
+  /* ~17px */
+  line-height: 1.7;
+  font-weight: 400;
+  color: #374151;
+  /* Soft dark gray */
+  margin-bottom: 20px;
+  max-width: 100%;
+}
+
+@media (max-width: 767px) {
+  .human-content {
+    padding: 32px 1.25rem;
+  }
+
+  .human-content p {
+    font-size: 1rem;
+    /* 16px */
+  }
+}
